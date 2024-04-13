@@ -7,6 +7,7 @@ import com.raj.orderNow.Entities.User;
 
 
 public interface UserService  {
+	public User createUser(User user);
 	public List<User> getUsers();
 	public User getUser(Integer userId);
 	public User updateUser(User user);
