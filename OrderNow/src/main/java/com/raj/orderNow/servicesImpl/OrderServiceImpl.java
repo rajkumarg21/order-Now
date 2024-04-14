@@ -14,23 +14,24 @@ import com.raj.orderNow.services.OrderService;
 public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderRepository orderRepository;
-	
+
 	// Create order
 	@Override
 	public Order createOrder(Order order) {
 		return orderRepository.save(order);
 	}
 
-	//get all order
+	// get all order
 	@Override
 	public List<Order> getOrders() {
-		
+
 		return orderRepository.findAll();
 	}
+
 // get order by id
 	@Override
 	public Order getOrder(Integer orderId) {
-		Order order= orderRepository.findById(orderId).orElseThrow(ExceptionHelper:: throwResourceNotFoundException);
+		Order order = orderRepository.findById(orderId).orElseThrow(ExceptionHelper::throwResourceNotFoundException);
 		return order;
 	}
 
@@ -43,13 +44,10 @@ public class OrderServiceImpl implements OrderService {
 	// delete order
 	@Override
 	public String deleteOrder(Integer orderId) {
-		Order order= orderRepository.findById(orderId).orElseThrow(ExceptionHelper:: throwResourceNotFoundException);
+		Order order = orderRepository.findById(orderId).orElseThrow(ExceptionHelper::throwResourceNotFoundException);
 		orderRepository.delete(order);
-		
+
 		return "order deleted !! ";
 	}
-	
-	
-	
 
 }

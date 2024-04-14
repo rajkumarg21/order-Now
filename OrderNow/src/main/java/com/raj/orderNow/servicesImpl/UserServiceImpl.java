@@ -14,11 +14,11 @@ import com.raj.orderNow.services.UserService;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository usrRepository;
-	
+
 	// create new user
 	@Override
 	public User createUser(User user)
-	
+
 	{
 		return usrRepository.save(user);
 	}
@@ -26,16 +26,16 @@ public class UserServiceImpl implements UserService {
 	// get all user
 	@Override
 	public List<User> getUsers() {
-		
+
 		return usrRepository.findAll();
 	}
 
 	// get user by id
 	@Override
 	public User getUser(Integer userId) {
-		
-		User user=usrRepository.findById(userId).orElseThrow(ExceptionHelper:: throwResourceNotFoundException);
-		 return user;
+
+		User user = usrRepository.findById(userId).orElseThrow(ExceptionHelper::throwResourceNotFoundException);
+		return user;
 	}
 
 	// update user
@@ -44,16 +44,15 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
- 
+
 	// delete user
-	
+
 	@Override
 	public String deleteUser(Integer userId) {
-		User user=usrRepository.findById(userId).orElseThrow(ExceptionHelper:: throwResourceNotFoundException);
-		 usrRepository.delete(user);
-		 return "user deleted ! ";
-		
+		User user = usrRepository.findById(userId).orElseThrow(ExceptionHelper::throwResourceNotFoundException);
+		usrRepository.delete(user);
+		return "user deleted ! ";
+
 	}
-	
-	
+
 }
